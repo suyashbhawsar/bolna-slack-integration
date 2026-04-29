@@ -14,8 +14,10 @@
     "lint:eslint": "eslint src",
     "lint:md": "markdownlint-cli2 assignment.md",
     "format": "prettier --write \"src/**/*.js\" \"eslint.config.js\" \"package.json\" \"wrangler.jsonc\" \"assignment.md\" \".github/**/*.yml\"",
+    "format:yaml": "yamlfmt .github/workflows/",
     "format:check": "prettier --check \"src/**/*.js\" \"eslint.config.js\" \"package.json\" \"wrangler.jsonc\" \"assignment.md\" \".github/**/*.yml\"",
-    "validate": "npm run lint && npm run format:check && wrangler deploy --dry-run"
+    "validate": "npm run lint && npm run format:check && wrangler deploy --dry-run",
+    "validate:local": "npm run format:yaml && npm run format && npm run validate"
   },
   "prettier": {
     "printWidth": 100,
