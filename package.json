@@ -9,12 +9,28 @@
     "dev": "wrangler dev",
     "dev:express": "node --watch src/index.js",
     "deploy": "wrangler deploy",
-    "cf:types": "wrangler types"
+    "cf:types": "wrangler types",
+    "lint": "eslint src && npm run lint:md",
+    "lint:eslint": "eslint src",
+    "lint:md": "markdownlint-cli2 assignment.md",
+    "format": "prettier --write \"src/**/*.js\" \"eslint.config.js\" \"package.json\" \"wrangler.jsonc\" \"assignment.md\" \".github/**/*.yml\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"eslint.config.js\" \"package.json\" \"wrangler.jsonc\" \"assignment.md\" \".github/**/*.yml\"",
+    "validate": "npm run lint && npm run format:check && wrangler deploy --dry-run"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": false
   },
   "dependencies": {
     "express": "^4.21.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
+    "markdownlint-cli2": "^0.20.0",
+    "prettier": "^3.7.4",
     "wrangler": "^4.51.0"
   }
 }
