@@ -1,0 +1,20 @@
+{
+  "name": "bolna-slack-integration",
+  "version": "1.0.0",
+  "description": "Integration that sends a Slack alert whenever a Bolna call ends",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "wrangler dev",
+    "dev:express": "node --watch src/index.js",
+    "deploy": "wrangler deploy",
+    "cf:types": "wrangler types"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.51.0"
+  }
+}
